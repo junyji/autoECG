@@ -16,8 +16,8 @@ activation function. The result in this paper is attractive. The minimum F1 scor
 
 
 # 2. Modified Structure
-  The original model consists of four residual blocks and the overall structure is shown in the following graph. The output has six entries, each containing a probability between 0 and 1, and can be understood as the probability of a given abnormality to be present. The abnormalities it predicts are: 1st degree AV block(1dAVb), right bundle branch block (RBBB), left bundle branch block (LBBB), sinus bradycardia (SB), atrial fibrillation (AF), sinus tachycardia (ST). The abnormalities are not mutually exclusive, so the probabilities do not necessarily sum to one.  
-  While in our cases, we only need to determine a certain ECG data whether is normal or abnormal (also the two probabilities sum to one), so our new output should be a single probability. In order to fulfill this goal, we modified the final dense layer by changing the unit number from six to one while still using the ‘sigmoid’ activation function. Moreover, we used the binary cross entropy function as the new loss function.  
+  The original model consists of four residual blocks and the overall structure is shown in the following graph. The output has six entries, each containing a probability between 0 and 1, and can be understood as the probability of a given abnormality to be present. The abnormalities are not mutually exclusive, so the probabilities do not necessarily sum to one.  
+  While in our cases, we only need to determine a certain ECG data whether is normal or abnormal (the two probabilities sum to one), so our new output should be a single probability. Therefore, we modified the final dense layer by changing the unit number from six to one while still using the ‘sigmoid’ activation function. Moreover, we used the binary cross entropy function as the new loss function.  
   The coding file of the modified model is in the autoECG-GPU.ipynb file under the root directory.
 
   
