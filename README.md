@@ -25,7 +25,25 @@ activation function. The result in this paper is attractive. The minimum F1 scor
   
   
 # 3. Data Generator
+Each of our ECG data consists of 12 leads, with a duration of 10 seconds and a frequency of 250 Hz. Therefore, each sample is a data matrix of 12 by 2500. In our case, we worked on 2 sets
+of data, one was synthetic, one was real clinical data. Although we cannot share our real clinical data, the simulation code is accessible. 
+ ![3D trajectory](/3D.png)
+ ![table](/table.png)
+ We can see from the above table that each interval in the 3D trajectory can be fixed by 3 parameters: the starting position $\theta_i$ along the circle of each interval in radius, The amplitude of each spike $a_i$ and the width of each wave $b_i$. By altering these 3 parameters we can change the shape of the 3D trajectory and thus change the waveform of the resulting ECG. 
+For the real parameters which we use in the simulation code is in the following table:
+ 
+|                |Parameter                           |Meaning                          |
+|----------------|-------------------------------|-----------------------------|
+|1|ti            |$\theta_i$            |
+|2          |ai            |$a_i$          |
+|3          |bi|$b_i$|
+  |4          |hr|heart rate|
+  |5          |duration|default 10s|
+  |6         |gamma|a (12,5) matrix to modify the five waves' amplitudes $a_i$ of 12 leads|
+ |7         |normal_N|the number of normal samples|
 
+Next step:
+The input shape of the autoECG model should be 4096 by 12. To satisfy this requirement, the data need to be firstly padded with zeroes: from (12, 2500) to (12, 4096);  after being transposed, the data become (4096, 12). 
 
 
 # 4. Transfer Learning
