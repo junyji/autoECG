@@ -5,7 +5,7 @@ import math
 
 class CRNN(nn.Module):
     def __init__(self, hidR = 256, layerR = 1, hidC = 256):
-        super(LSTNet, self).__init__()
+        super(CRNN, self).__init__()
         # len of input (time domain)
         self.P = 2500
         # width of input
