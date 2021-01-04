@@ -40,7 +40,7 @@ class CRNN(nn.Module):
             nn.Linear(128, 32),
             nn.ReLU(),
             nn.BatchNorm1d(32),
-            nn.Linear(32, 1),
+            nn.Linear(32, 1)
         )
         
     def forward(self, x):
